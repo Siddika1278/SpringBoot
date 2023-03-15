@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>login</title>
+
+</head>
+<body>
+
+<section>
+	<div class="container p-5" >
+		<div class="row" style="background-color:#0dcaf0">
+			<div class="col-md-6-offset-md-3">
+				<div class="card" style="background-color:#20c997">
+					<div class="card-header text-center fs-4">Login Page</div>
+					
+					<div th:if="${param.error}" class="alert alert-danger">
+						Invalid Username or password						
+					</div>
+					
+					<div th:if="${param.logout}" class="alert alert-sucess">
+						Logout Sucessfully					
+					</div>
+					
+					<div class="alert alert-danger" role="alert" th:if="${invalidSession !=null}">
+						session expired, please re-login					
+					</div>
+					
+					<div class="card-body">
+							
+						<form action="/login" method="post">
+						
+						  
+						  <div class="mb-3">
+						    <label for="exampleInputEmail1" class="form-label">Enter Email</label>
+						    <input type="email" class="form-control" style="background-color:#abd5bd" name="username">
+						  </div>
+						  <div class="mb-3">
+						    <label for="exampleInputPassword1" class="form-label">Enter Password</label>
+						    <input type="password" class="form-control" style="background-color:#abd5bd" name="password">
+						  </div>
+						  <button type="submit" class="btn btn-primary">Login</button>
+						</form>
+					</div>						
+				</div>
+			</div>	
+		</div>
+	</div>
+</section>
+
+
+</body>
+</html>
